@@ -11,7 +11,8 @@ type reqbody struct {
 	Age  int
 }
 
-func body(rsp http.ResponseWriter, req *http.Request) error {
+// 解析request中body的构成
+func body(rsp http.ResponseWriter, req *http.Request) {
 	req.ParseForm()
 	var bodySlc []byte = make([]byte, 1024)
 
@@ -33,6 +34,6 @@ func body(rsp http.ResponseWriter, req *http.Request) error {
 		fmt.Println("unmarshal error")
 	} else {
 		fmt.Println("name : " + body2.Name)
-		fmt.Println("age : %v", body2.Age)
+		fmt.Printf("age : %v\n", body2.Age)
 	}
 }

@@ -1,21 +1,20 @@
 package response
 
 import (
-	"net/http"
-
 	"github.com/labstack/echo/v4"
 )
 
-type Response struct {
+type Result struct {
 	Code int         `json:"code"`
 	Msg  string      `json:"msg"`
 	Data interface{} `json:"data"`
 }
 
-func SendResponse(c echo.Context, code int, msg string, data ...interface{}) error{
-	return c.JSON(http.StatusOK, Response{
-		Code: code,
-		Msg:  msg,
-		Data: data,
-	})
+func response(c echo.Context, code int, message string, data interface{}) {
+	return c.json(
+		http.StatusOK, 
+		Result {
+			code, message, data,
+		}
+	)
 }

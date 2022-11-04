@@ -8,6 +8,7 @@ import (
 	"github.com/labstack/echo/v4"
 )
 
+// 读入query并原样输出
 func query(c echo.Context) error {
 	input := c.queryParam("name")
 	fmt.Println(input)
