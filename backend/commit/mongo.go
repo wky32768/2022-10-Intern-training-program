@@ -1,6 +1,6 @@
 //basic CRUD of mongoDB using go programming language
 
-package main
+package commit
 
 import (
 	"context"

@@ -1,4 +1,4 @@
-package main
+package commit
 
 import (
 	"log"

@@ -1,4 +1,4 @@
-package orm
+package app
 
 import (
 	"log"
@@ -20,19 +20,19 @@ type Users struct {
 
 type Todos struct {
 	id      uint `gorm:"primaryKey"`
-	user_id uint
+	userId  uint
 	title   string
 	content string
 }
 
 // 添加新的todo
 func Add(title string, content string, userid uint) (uint, error) {
-	var new_todo = model.Todo{content: content, Title: title, Userid: userid}
-	err := db.Create(&new_todo).error
+	var newTodo = model.Todos{content: content, Title: title, Userid: userid}
+	err := db.Create(&newTodo).error
 	if err != nil {
 		return 0, err
 	} else {
-		return new_todo.ID, nil
+		return newTodo.ID, nil
 	}
 }
 

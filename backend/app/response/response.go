@@ -2,6 +2,7 @@ package response
 
 import (
 	"github.com/labstack/echo/v4"
+	"net/http"
 )
 
 type Result struct {
@@ -10,7 +11,7 @@ type Result struct {
 	Data interface{} `json:"data"`
 }
 
-func response(c echo.Context, code int, message string, data interface{}) {
+func SendResponse(c echo.Context, code int, message string, data interface{}) {
 	return c.json(
 		http.StatusOK, 
 		Result {

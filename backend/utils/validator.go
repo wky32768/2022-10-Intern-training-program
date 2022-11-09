@@ -1,9 +1,8 @@
 package utils
 
 import (
-	"sync"
-
 	"github.com/go-playground/validator/v10"
+	"sync"
 )
 
 type CustomValidator struct {

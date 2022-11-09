@@ -1,8 +1,8 @@
 package app
 
 import (
-	"flybitch/app/controller"
-	"flybitch/app/middleware"
+	"backend/app/controller"
+	"backend/app/middleware"
 )
 
 func addRoutes() {
