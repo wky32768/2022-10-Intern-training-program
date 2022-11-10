@@ -11,11 +11,11 @@ type Result struct {
 	Data interface{} `json:"data"`
 }
 
-func SendResponse(c echo.Context, code int, message string, data interface{}) {
-	return c.json(
-		http.StatusOK, 
-		Result {
+func SendResponse(c echo.Context, code int, message string, data ...interface{}) error {
+	return c.JSON(
+		http.StatusOK,
+		Result{
 			code, message, data,
-		}
+		},
 	)
 }

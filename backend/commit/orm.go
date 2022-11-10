@@ -1,6 +1,7 @@
 package commit
 
 import (
+	"fmt"
 	"log"
 	// "mysql-master/mysql-master"
 
@@ -18,7 +19,7 @@ type Users struct {
 
 type Todos struct {
 	id      uint `gorm:"primaryKey"`
-	user_id uint
+	userId  uint
 	title   string
 	content string
 }
@@ -38,6 +39,7 @@ func main() {
 	//create
 	cd := Users{id: 1, name: "cd", passwd: "juan"}
 	result := db.Create(&cd)
+	fmt.Println(result)
 
 	//search
 	result = db.Where("name =?", "cd").Find(&Users{})
@@ -49,6 +51,6 @@ func main() {
 	db.Save(&temp)
 
 	//delete
-	db.Where("name = ?", "cd").Delete()
+	db.Where("name = ?", "cd").Delete(&Users{})
 
 }

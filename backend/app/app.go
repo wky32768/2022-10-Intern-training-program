@@ -1,12 +1,12 @@
 package app
 
 import (
-	"backend/app/controller"
+	"backend/app/controller/pong"
 	"backend/app/middleware"
 )
 
-func addRoutes() {
+func AddRoutes() {
 	api := e.Group("api")
 	api.Use(middleware.Auth)
-	api.GET("/ping", controller.Ping)
+	api.GET("/ping", pong.Ping)
 }

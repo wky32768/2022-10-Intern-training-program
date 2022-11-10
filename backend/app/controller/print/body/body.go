@@ -6,7 +6,7 @@ import (
 	"net/http"
 )
 
-type reqbody struct {
+type reembody struct {
 	Name string
 	Age  int
 }
@@ -28,7 +28,7 @@ func body(rsp http.ResponseWriter, req *http.Request) {
 
 	str := string(bodySlc)
 	fmt.Println("length of str: ", len(str))
-	var body2 reqbody
+	var body2 reembody
 	err := json.Unmarshal([]byte(str), &body2)
 	if err != nil {
 		fmt.Println("unmarshal error")

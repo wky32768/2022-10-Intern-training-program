@@ -1,7 +1,7 @@
 package model
 
 import (
-	"backend/app"
+	"fmt"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
 	"gorm.io/driver/mysql"
@@ -10,29 +10,21 @@ import (
 
 var DB *gorm.DB
 
-type Users struct {
-	id     uint `gorm:"primaryKey"`
-	name   string
-	passwd string
-}
-
-type Todos struct {
-	id      uint `gorm:"primaryKey"`
-	userId  uint
-	title   string
-	content string
-}
-
-// Init 在连接后的数据库放入数据表
+// Init 连接数据库中把Users与Todos放入数据表
 func Init() {
 	connectDatabase()
-	err := DB.AutoMigrate(&app.Users{})
-	if err != nil {
-		logrus.Error("cannot create user")
+	fmt.Println("Database connected successfully")
+	if !DB.Migrator().HasTable(&Users{}) {
+		err := DB.AutoMigrate(&Users{})
+		if err != nil {
+			logrus.Error("cannot create user")
+		}
 	}
-	err = DB.AutoMigrate(&app.Todos{})
-	if err != nil {
-		logrus.Error("cannot create todo")
+	if !DB.Migrator().HasTable(&Todos{}) {
+		err := DB.AutoMigrate(&Todos{})
+		if err != nil {
+			logrus.Error("cannot create todo")
+		}
 	}
 }
 

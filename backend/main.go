@@ -8,7 +8,6 @@ package main
 import (
 	"backend/app"
 	"backend/model"
-
 	"github.com/sirupsen/logrus"
 )
 
