@@ -11,8 +11,8 @@ type reembody struct {
 	Age  int
 }
 
-// 解析request中body的构成
-func body(rsp http.ResponseWriter, req *http.Request) {
+// Body 解析request中body的构成
+func Body(rsp http.ResponseWriter, req *http.Request) {
 	req.ParseForm()
 	var bodySlc []byte = make([]byte, 1024)
 

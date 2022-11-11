@@ -31,12 +31,13 @@ func Init() {
 // 尝试连接数据库
 func connectDatabase() {
 	viper.SetConfigName("config")
-	viper.AddConfigPath("./")
+	viper.SetConfigType("yaml")
+	viper.AddConfigPath("./model")
 	if err := viper.ReadInConfig(); err != nil {
 		logrus.Panic(err)
 	}
 
-	loginInfo := viper.GetStringMapString("User")
+	loginInfo := viper.GetStringMapString("Users")
 
 	dbArgs := loginInfo["username"] + ":" + loginInfo["password"] +
 		"@(localhost)/" + loginInfo["db_name"] + "?charset=utf8mb4&parseTime=True&loc=Local"
