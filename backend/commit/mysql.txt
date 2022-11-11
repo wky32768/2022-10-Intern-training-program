@@ -1,5 +1,5 @@
 //以下为sql指令列表
-mysql -u -ps
+mysql -u root -p
 (passward)
 CREATE USER todo;
 CREATE DATABASE todo;

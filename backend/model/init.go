@@ -30,11 +30,11 @@ func Init() {
 
 // 尝试连接数据库
 func connectDatabase() {
-	viper.SetConfigName("config")
-	viper.AddConfigPath("./")
-	if err := viper.ReadInConfig(); err != nil {
-		logrus.Panic(err)
-	}
+	//viper.SetConfigName("config")
+	//viper.AddConfigPath("./")
+	//if err := viper.ReadInConfig(); err != nil {
+	//	logrus.Panic(err)
+	//}
 
 	loginInfo := viper.GetStringMapString("User")
 
