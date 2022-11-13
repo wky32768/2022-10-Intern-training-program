@@ -2,6 +2,7 @@ package app
 
 import (
 	"backend/app/controller/pong"
+	"backend/app/controller/print/query"
 	"backend/app/middleware"
 )
 
@@ -12,4 +13,5 @@ func AddRoutes() {
 
 	e.Use(middleware.Auth)
 	e.GET("/ping", pong.Ping)
+	e.POST("/print/query", query.Query)
 }

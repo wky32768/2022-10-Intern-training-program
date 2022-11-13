@@ -2,3 +2,4 @@
 conf.yaml
 docs/**
 vendor
+*.yaml

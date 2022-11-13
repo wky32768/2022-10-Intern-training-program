@@ -7,12 +7,13 @@ package main
 
 import (
 	"backend/app"
+	"backend/model"
 	"github.com/sirupsen/logrus"
 )
 
 func main() {
 	logrus.SetReportCaller(true)
-	//model.Init()
+	model.Init()
 	app.InitWebFramework()
 	app.StartServer()
 }
